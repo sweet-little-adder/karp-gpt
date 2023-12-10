@@ -402,7 +402,7 @@ const Main: FC = () => {
         onShowSideBar={showSidebar}
         onCreateNewChat={() => handleConversationIdChange('-1')}
       />
-      <div className="flex rounded-t-2xl bg-white overflow-hidden">
+      <div className="flex rounded-t-2xl bg-black overflow-hidden">
         {/* sidebar */}
         {!isMobile && renderSidebar()}
         {isMobile && isShowSidebar && (
@@ -432,7 +432,7 @@ const Main: FC = () => {
           {
             hasSetInputs && (
               <div className='relative  grow h-[200px] pc:w-[794px] max-w-full mobile:w-full pb-[66px] mx-auto mb-3.5 overflow-hidden'>
-                <div className='h-full overflow-y-auto bg-[#121212]/ ' ref={chatListDomRef}>
+                <div className='h-full overflow-y-auto  ' ref={chatListDomRef}>
                   <Chat
                     chatList={chatList}
                     onSend={handleSend}

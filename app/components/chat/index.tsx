@@ -355,7 +355,7 @@ const Chat: FC<IChatProps> = ({
       {
         !isHideSendInput && (
           <div className={cn(!feedbackDisabled && '!left-3.5 !right-3.5', 'absolute z-10 bottom-0 left-0 right-0')}>
-            <div className='p-[5.5px] max-h-[150px] bg-[#ff006d] border-[1.5px] border-gray-200 rounded-xl overflow-y-auto'>
+            <div className='p-[5.5px] max-h-[150px] bg-white border-[1.5px] border-[#ff006d]/ hover:drop-shadow(0 0 9px rgba(299, 299, 299, 0.9)) hover:bg-[#ff006d] rounded-xl overflow-y-auto'>
               {
                 visionConfig?.enabled && (
                   <>
@@ -380,7 +380,7 @@ const Chat: FC<IChatProps> = ({
                 )
               }
               <Textarea
-                className={`bg-[#ff006d]/
+                className={`
                   block w-full px-2 pr-[118px] py-[7px] leading-5 max-h-none text-sm text-gray-700 outline-none appearance-none resize-none
                   ${visionConfig?.enabled && 'pl-12'}
                 `}
