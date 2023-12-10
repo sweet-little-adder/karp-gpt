@@ -34,6 +34,7 @@ const AppIcon: FC<AppIconProps> = ({
         width={24}
         height={24}
       />
+
     </span>
   )
 }
