@@ -126,3 +126,18 @@ a {
   background-clip: text;
   text-fill-color: transparent;
 }
+
+/* For WebKit-based browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 0.1rem; /* Set the width of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #cccccc;
+opacity: 10%;
+  border-radius: 6px; /* Optional: Set border radius for a rounded look */
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent; /* Set the background color of the scrollbar track (transparent in this case) */
+}

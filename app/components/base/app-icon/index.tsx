@@ -28,7 +28,12 @@ const AppIcon: FC<AppIconProps> = ({
         background,
       }}
     >
-      O̬
+      <img
+        src="components/base/icons/palantir-logo.svg"
+        alt="logo"
+        width={24}
+        height={24}
+      />
     </span>
   )
 }

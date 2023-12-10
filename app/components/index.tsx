@@ -416,7 +416,7 @@ const Main: FC = () => {
           </div>
         )}
         {/* main */}
-        <div className='flex-grow flex flex-col h-[calc(100vh_-_3rem)] overflow-y-auto'>
+        <div className='flex-grow flex flex-col h-[calc(100vh_-_3rem)] overflow-y-auto bg-black'>
           <ConfigSence
             conversationName={conversationName}
             hasSetInputs={hasSetInputs}
@@ -431,8 +431,8 @@ const Main: FC = () => {
           {/* bg-[url("https://pbs.twimg.com/media/F-64SbjXEAAjgJF?format=jpg&name=large") */}
           {
             hasSetInputs && (
-              <div className='relative bg-[#121212]/90 grow h-[200px] pc:w-[794px] max-w-full mobile:w-full pb-[66px] mx-auto mb-3.5 overflow-hidden'>
-                <div className='h-full overflow-y-auto bg-[#343541] ] ' ref={chatListDomRef}>
+              <div className='relative  grow h-[200px] pc:w-[794px] max-w-full mobile:w-full pb-[66px] mx-auto mb-3.5 overflow-hidden'>
+                <div className='h-full overflow-y-auto bg-[#121212]/ ' ref={chatListDomRef}>
                   <Chat
                     chatList={chatList}
                     onSend={handleSend}

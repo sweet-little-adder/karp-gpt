@@ -67,6 +67,7 @@
     "@tailwindcss/typography": "^0.5.9",
     "@types/js-cookie": "^3.0.3",
     "@types/negotiator": "^0.6.1",
+    "@types/three": "^0.159.0",
     "autoprefixer": "^10.4.14",
     "eslint-plugin-react-hooks": "^4.6.0",
     "lint-staged": "^13.2.2",
