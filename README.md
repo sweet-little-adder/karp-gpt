@@ -16,7 +16,7 @@ Config more in `config/index.ts` file:
 ```js
 export const APP_INFO: AppInfo = {
   title: 'Chat APP',
-  description: '',
+  description: 'O̬',
   copyright: '',
   privacy_policy: '',
   default_language: 'zh-Hans'

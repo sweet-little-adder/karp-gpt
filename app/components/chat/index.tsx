@@ -62,7 +62,7 @@ export type IChatItem = {
 
 const OperationBtn = ({ innerContent, onClick, className }: { innerContent: React.ReactNode; onClick?: () => void; className?: string }) => (
   <div
-    className={`relative box-border flex items-center justify-center h-7 w-7 p-0.5 rounded-lg bg-white cursor-pointer text-gray-500 hover:text-gray-800 ${className ?? ''}`}
+    className={`relative box-border flex items-center justify-center h-7 w-7 p-0.5 rounded-lg bg-[#ff006d] cursor-pointer text-gray-500 hover:text-gray-800 ${className ?? ''}`}
     style={{ boxShadow: '0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.05)' }}
     onClick={onClick && onClick}
   >
@@ -380,7 +380,7 @@ const Chat: FC<IChatProps> = ({
                 )
               }
               <Textarea
-                className={`
+                className={`bg-[#ff006d]/
                   block w-full px-2 pr-[118px] py-[7px] leading-5 max-h-none text-sm text-gray-700 outline-none appearance-none resize-none
                   ${visionConfig?.enabled && 'pl-12'}
                 `}

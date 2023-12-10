@@ -1,6 +1,10 @@
 .answerIcon {
-  position: relative;
-  background: url(./icons/robot.svg);
+  /* position: center; */
+  background-position: center;
+  border-radius: 100%;
+  background-size: contain;
+  /* background: url("https://pbs.twimg.com/media/F-64SbjXEAAjgJF?format=jpg&name=small"); */
+  background: #cccccc;
 }
 
 .typeingIcon {

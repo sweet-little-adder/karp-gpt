@@ -13,7 +13,7 @@ const LocaleLayout = ({
     <html lang={locale ?? 'en'} className="h-full">
       <body className="h-full">
         <div className="overflow-x-auto">
-          <div className="w-screen h-screen min-w-[300px]">
+          <div className="w-screen h-screen min-w-[300px] bg-[#343541]">
             {children}
           </div>
         </div>
