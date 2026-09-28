@@ -1,76 +1,27 @@
-# Conversion Web App Template
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# KarpGPT
 
-## Config App
-Create a file named `.env.local` in the current directory and copy the contents from `.env.example`. Setting the following content:
-```
-# APP ID
-NEXT_PUBLIC_APP_ID=
-# APP API key
-NEXT_PUBLIC_APP_KEY=
-# APP URL
-NEXT_PUBLIC_API_URL=
-```
+A Next.js chat interface for a Dify application, branded KarpGPT. This repository contains the web client and API routes that proxy chat, conversation history, application parameters, file uploads, and message feedback to Dify. The model, knowledge base, prompts, and any investor-relations retrieval logic must be configured in Dify; they are not defined here.
 
-Config more in `config/index.ts` file:   
-```js
-export const APP_INFO: AppInfo = {
-  title: 'Chat APP',
-  description: 'O̬',
-  copyright: '',
-  privacy_policy: '',
-  default_language: 'zh-Hans'
-}
+## How it works
 
-export const isShowPrompt = true
-export const promptTemplate = ''
+```text
+Browser chat UI (React/Next.js)
+  -> /api/* route handlers (Next.js)
+  -> dify-client ChatClient
+  -> configured Dify API
 ```
 
-## Getting Started
-First, install dependencies:
-```bash
-npm install
-# or
-yarn
-# or
-pnpm install
-```
+- `app/components/index.tsx` initializes the UI from Dify's application parameters, loads conversation history, and manages streaming answer state. `hooks/use-conversation.ts` remembers the active conversation ID in local storage per application.
+- `service/base.ts` posts chat requests and parses `data:` events from the streamed response; `service/index.ts` specifies `response_mode: 'streaming'`.
+- `app/api/utils/common.ts` constructs the Dify client and derives a user ID from an application prefix and a browser `session_id` cookie. The API routes forward messages, history, feedback, parameters, and uploads.
+- The chat component renders Markdown and exposes like/dislike feedback. Image upload controls are present when the configured Dify app enables them.
 
-Then, run the development server:
+This is an integration/UI project, not a standalone LLM, retrieval engine, or autonomous agent. The repository does not include an earnings-document corpus, citation checks, evaluation suite, or the Dify application's backend configuration.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Run locally
 
-## Using Docker
+1. Have a reachable Dify chat application and its app ID, API key, and API URL.
+2. Copy `.env.example` to `.env.local` and fill in `NEXT_PUBLIC_APP_ID`, `NEXT_PUBLIC_APP_KEY`, and `NEXT_PUBLIC_API_URL`.
+3. Run `npm install` and `npm run dev`, then open `http://localhost:3000`.
 
-```
-docker build . -t <DOCKER_HUB_REPO>/webapp-conversation:latest
-# now you can access it in port 3000
-docker run -p 3000:3000 <DOCKER_HUB_REPO>/webapp-conversation:latest
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-> ⚠️ If you are using [Vercel Hobby](https://vercel.com/pricing), your message will be trucated due to the limitation of vercel.
-
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+`npm run build` creates a production build; `npm run start` serves it. A `Dockerfile` is also provided. **Security note:** the current configuration reads the app key from a `NEXT_PUBLIC_` variable and also imports it in client-side code. Do not use a sensitive production key with this setup without moving the secret to server-only configuration first. The repository does not have automated tests.
